@@ -40,6 +40,8 @@
 #           filters:
 #             branches:
 #               only: main # only deploy when on main
+ 
+#Had to repush once updated organization settings in CircleCI
 
 version: 2.1
 
