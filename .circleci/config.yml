@@ -25,7 +25,7 @@ jobs:
 workflows:
   build:
     jobs:
-      - cypress/run
+      - cypress/run:
           start: npm start
 
 #   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
