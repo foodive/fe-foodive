@@ -1,7 +1,15 @@
-// mixin format is with @
+// mixin format is with @, call with @include, can have a placeholder inside a mixin
 // these are reuseable code blocks that are kinda like functions, can pass params
     // example:
-    @corner-style($arc) {
-        border-radius: $arc;
-    }
+    // @mixin corner-style($arc) {
+    //     border-radius: $arc;
+    // }
 //
+// .my-div {
+//     @include corner-style(5px);
+// }
+
+//keep this
+@mixin corner-style($arc) {
+    border-radius: $arc;
+}
