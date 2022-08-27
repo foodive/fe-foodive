@@ -12,9 +12,9 @@ jobs:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-      - run:
-          name: Run tests
-          command: npm run cypress
+       - cypress/run:
+          name: Run cypress tests
+          start: npm start
       - run :
           name : Run build
           command: npm run build
@@ -33,8 +33,6 @@ jobs:
 workflows:
   test_foodive:
     jobs:
-      - cypress/run:
-          start: npm start
       - build_and_test
       - deploy:
           requires:
