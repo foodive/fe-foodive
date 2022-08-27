@@ -1,0 +1,7 @@
+// mixin format is with @
+// these are reuseable code blocks that are kinda like functions, can pass params
+    // example:
+    @corner-style($arc) {
+        border-radius: $arc;
+    }
+//

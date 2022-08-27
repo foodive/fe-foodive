@@ -1,0 +1,23 @@
+.box {
+    @extend %box-style;
+    background-color: $purple;
+}
+
+.box2 {
+    @extend %box-style;
+    background-color: $black;
+}
+
+.box3 {
+    @extend %box-style;
+    background-color: $purple;
+}
+
+.box4 {
+    @extend %box-style;
+    background-color: $orange;
+}
+
+p {
+    color: $white;
+}
