@@ -1,0 +1,16 @@
+// this is just an import file. all new files should be imported to this page
+
+/* helpers ie. variables and placeholders and such
+/* ======================================================= */
+@import "./helpers/variables";
+@import "./helpers/mixins";
+@import "./helpers/_placeholders";
+
+/* Components: mostly for buttons and the like that cross pages
+/* ======================================================= */
+@import "./components/buttons";
+
+/* Components: mostly for buttons and the like that cross pages
+/* ======================================================= */
+@import "./pages/home";
+@import "./pages/app"
