@@ -24,8 +24,6 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/project
-      - heroku/deploy-via-git:
-          force: true
 
 workflows:
   test_foodive:
