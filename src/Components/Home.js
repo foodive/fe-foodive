@@ -1,22 +1,15 @@
 import React from "react";
 import "../Styles/global.scss"
+import Options from "./Options";
 
 const Home = () => {
     return (
-        <>
-        <div className="box">
-        <p>stuff</p>
-        </div>
-        <div className="box2">
-        <p>stuff</p>
-        </div>
-        <div className="box3">
-        <p>stuff</p>
-        </div>
-        <div className="box4">
-        <p>stuff</p>
-        </div>
-        </>
+        <main>
+            <section className="about">about our app</section>
+            <p>location input</p>
+            <Options />
+            <button className="submit">Search for restaurant</button>
+        </main>
     )
 }
 
