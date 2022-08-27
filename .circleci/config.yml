@@ -6,15 +6,12 @@ orbs:
   heroku: circleci/heroku@1.2.6
 
 jobs:
-  build_and_test:
+  build:
     executor: node/default
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-       - cypress/run:
-          name: Run cypress tests
-          start: npm start
       - run :
           name : Run build
           command: npm run build
@@ -33,10 +30,13 @@ jobs:
 workflows:
   test_foodive:
     jobs:
-      - build_and_test
+      - cypress/run:
+          start: npm start
+      - build
       - deploy:
           requires:
-            - build_and_test
+            - cypress/run
+            - build
           filters:
             branches:
               only: main
