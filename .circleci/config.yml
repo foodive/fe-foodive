@@ -3,17 +3,15 @@ version: 2.1
 orbs:
   node: circleci/node@4.7
   cypress: cypress-io/cypress@2.1.0
+  heroku: circleci/heroku@1.2.6
 
 jobs:
-  build_and_test:
+  build:
     executor: node/default
     steps:
       - checkout
       - node/install-packages:
           pkg-manager: npm
-      - run:
-          name: Run tests
-          command: npm run cy:run
       - run :
           name : Run build
           command: npm run build
@@ -21,31 +19,25 @@ jobs:
           root: ~/project
           paths:
             - .
+  deploy: 
+    executor: heroku/default
+    steps:
+      - attach_workspace:
+          at: ~/project
+      - heroku/deploy-via-git:
+          force: true
 
 workflows:
-  build:
+  test_foodive:
     jobs:
       - cypress/run:
           start: npm start
-
-#   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
-
-#   deploy: # this can be any name you choose
-#     executor: heroku/default
-#     steps:
-#       - attach_workspace:
-#           at: ~/project
-#       - heroku/deploy-via-git:
-#           force: true # force push when pushing to the heroku remote, see: https://devcenter.heroku.com/articles/git
-
-# workflows:
-#   test_my_app:
-#     jobs:
-#       - build_and_test
-#       - deploy:
-#           requires:
-#             - build_and_test # only deploy if the build_and_test job has completed
-#           filters:
-#             branches:
-#               only: main # only deploy when on main
+      - build
+      - deploy:
+          requires:
+            - cypress/run
+            - build
+          filters:
+            branches:
+              only: main
  
