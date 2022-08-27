@@ -1,23 +1,11 @@
-.box {
-    @extend %box-style;
-    background-color: $purple;
+main {
+    background-color: $light-grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.box2 {
-    @extend %box-style;
-    background-color: $black;
-}
-
-.box3 {
-    @extend %box-style;
-    background-color: $purple;
-}
-
-.box4 {
-    @extend %box-style;
-    background-color: $orange;
-}
-
-p {
-    color: $white;
+.submit {
+    height: 120px;
+    width: 500px;
 }
