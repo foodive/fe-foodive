@@ -53,6 +53,7 @@
 
 orbs:
   node: circleci/node@4.7
+  cypress: cypress-io/cypress@2.1.0
   heroku: circleci/heroku@1.2.6 # Use the Heroku orb in your config
 
 jobs:
