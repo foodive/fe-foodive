@@ -33,6 +33,8 @@ jobs:
 workflows:
   test_foodive:
     jobs:
+      - cypress/run
+          start: npm start
       - build_and_test
       - deploy:
           requires:
