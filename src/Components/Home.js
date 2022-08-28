@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../Styles/global.scss"
 import Options from "./Options";
 
@@ -8,7 +9,10 @@ const Home = () => {
             <section className="about">about our app</section>
             <p>location input</p>
             <Options />
-            <button className="submit">Search for restaurant</button>
+            <Link to={'/recommendation'}>
+              <button className="submit">Search for restaurant</button>
+            </Link>
+
         </main>
     )
 }
