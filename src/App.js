@@ -2,6 +2,7 @@ import React from 'react';
 import Home from './Components/Home';
 import './Styles/global.scss';
 import { Link, Route } from 'react-router-dom'
+import Recommendation from './Components/Recommendation';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         </Link>
       </nav>
       <Route exact path='/' render={() => <Home /> } />
+      <Route path='/recommendation' render={() => <Recommendation />} />
     </>
   );
 }
