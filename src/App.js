@@ -7,8 +7,8 @@ import Recommendation from './Components/Recommendation';
 
 function App() {
 
-  const [restaurantData, setRestaurantData] = useState({});
-
+  const [restaurantData, setRestaurantData] = useState(null);
+  console.log(restaurantData)
   return (
     <>
       <nav>

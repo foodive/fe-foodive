@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Styles/global.scss"
 import Options from "./Options";
-import data from "../mockData";
+import { data } from "../mockData";
 
 const Home = ({ setRestaurantData }) => {
     return (
