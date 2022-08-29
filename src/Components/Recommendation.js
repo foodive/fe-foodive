@@ -13,7 +13,7 @@ const Recommendation = ({ restaurantData, setRestaurantData }) => {
           </header>
           <section className="information">
             <div className="restaurant-image">
-              <img src={restaurantData.image_url}></img>
+              <img src={restaurantData.image_url} alt="restaurant photo"></img>
             </div>
             <section className="details">
               <section className="properties">
