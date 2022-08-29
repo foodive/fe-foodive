@@ -1,10 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Home from './Components/Home';
 import './Styles/global.scss';
 import { Link, Route } from 'react-router-dom'
 import Recommendation from './Components/Recommendation';
 
+
 function App() {
+
+  const [restaurantData, setRestaurantData] = useState({});
+
   return (
     <>
       <nav>
@@ -12,8 +16,8 @@ function App() {
           <h1>Foodive</h1>
         </Link>
       </nav>
-      <Route exact path='/' render={() => <Home /> } />
-      <Route path='/recommendation' render={() => <Recommendation />} />
+      <Route exact path='/' render={() => <Home setRestaurantData={setRestaurantData}/> } />
+      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} setRestaurantData={setRestaurantData}/>} />
     </>
   );
 }
