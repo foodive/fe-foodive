@@ -10,10 +10,8 @@
 //     @extend %box-style
 // }
 
-// get rid of this when done sharing examples
-// ===================================================
-%box-style {
-    height: 200px;
-    width: 200px;
+%section-format {
+    box-shadow: 0px 9px 17px 11px rgba(0, 0, 0, 0.5);
+    border-radius: 60px;
+    overflow: hidden;
 }
-// ===================================================
