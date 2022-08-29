@@ -1,0 +1,128 @@
+{
+  "type": "object",
+  "required": [
+    "name",
+    "image_url",
+    "categories",
+    "rating",
+    "coordinates",
+    "price",
+    "location",
+    "display_phone"
+  ],
+  "properties": {
+    "name": {
+      "type": "string",
+      "examples": [
+        "Girl & The Goat"
+      ]
+      },
+    "image_url": {
+      "type": "string",
+      "examples": [
+        "https://s3-media1.fl.yelpcdn.com/bphoto/ya6gjD4BPlxe7AKMj_5WsA/o.jpg"
+      ]
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "alias",
+          "title"
+        ],
+        "properties": {
+          "alias": {
+            "type": "string",
+            "examples": [
+              "newamerican",
+              "bakeries",
+              "coffee"
+            ]
+          },
+          "title": {
+            "type": "string",
+            "examples": [
+              "American (new)",
+              "Bakeries",
+              "Coffee & Tea"
+            ]
+          }
+        },
+        "examples": [{
+          "alias": "newamerican",
+          "title": "American (New)"
+        },
+         { "alias": "bakeries",
+           "title": "Bakeries"
+         },
+          {
+            "alias": "coffee",
+            "title": "Coffee & Tea"
+        }]
+    }
+  },
+    "rating": {
+      "type": "float",
+      "default": 0.0,
+      "examples": [
+        4.5
+      ]
+    },
+    "coordinates": {
+      "type": "float",
+      "required": [
+        "latitude",
+        "longitude"
+      ],
+      "properties": {
+        "latitude": {
+          "type": "float",
+          "examples": [
+            41.88418277967144
+          ]
+        },
+        "longitude": {
+          "type": "float",
+          "examples": [
+            -87.64797390222085
+          ]
+        }
+      },
+      "examples": [{
+        "latitude": 41.88418277967144,
+        "longitude": -87.64797390222085
+      }]
+    },
+    "price": {
+      "type": "string",
+      "examples": [
+        "$$$"
+      ]
+    },
+    "location": {
+      "type": "object",
+      "required": [
+        "displayed_address"
+      ],
+      "properties": {
+        "display_address":{
+          "type": "array",
+          "items": {
+            "type": "string",
+            "examples": [
+              "809 W Randolph St",
+              "Chicago, IL 60607"
+            ]
+          }
+        }
+      }
+    },
+    "display_phone": {
+      "type": "string",
+      "examples": [
+        "(312)492-6262"
+        ]
+      }
+  }
+}
