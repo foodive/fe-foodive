@@ -5,13 +5,17 @@
     margin: 30px;
 }
 
+.info-panel p {
+    font-size: 1.2em;
+}
+
 // ------------------ header ------------------ //
 .info-header {
     display:flex;
     justify-content: center;
     align-items: center;
     background-color: $orange;
-    height: 75px;
+    height: 10vh;
 }
 
 .name{

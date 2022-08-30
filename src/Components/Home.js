@@ -11,8 +11,8 @@ const Home = ({ setRestaurantData }) => {
             <p className="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
 veniam, quis nostrud </p>
-            </section>
             <p>200 E Colfax Ave, Denver, CO 80203</p>
+            </section>
             <section className="options-panel">
                 <Options />
             </section>

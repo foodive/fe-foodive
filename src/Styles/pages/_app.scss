@@ -5,12 +5,15 @@
 nav {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: $purple;
+  height: 15vh;
 }
 
 
 h1 {
-  font-size: 60px;
+  margin: 0;
+  font-size: 3em;
   text-decoration: none;
   color: $white;
 }

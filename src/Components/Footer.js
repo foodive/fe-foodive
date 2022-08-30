@@ -7,7 +7,7 @@ const Footer = () => {
             <div className="section-splitter"></div>
             <div className="project-lead">
                 <p className="footer-text">Luke Swenson</p>
-                <div className="footer-info">
+                <div className="footer-info lead">
                 <p className="footer-text">lukeswenson95@outlook.com</p>
                 <p className="footer-text">https://github.com/LukeSwenson06</p>
                 </div>
