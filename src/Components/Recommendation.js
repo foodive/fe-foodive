@@ -9,11 +9,11 @@ const Recommendation = ({ restaurantData, setRestaurantData }) => {
       <main>
         <section className="info-panel">
           <header className="info-header">
-          <h2 className="name">{restaurantData.name}</h2>
+            <h2 className="name">{restaurantData.name}</h2>
           </header>
           <section className="information">
             <div className="restaurant-image">
-              <img src={restaurantData.image_url} alt="restaurant photo"></img>
+              <img src={restaurantData.image_url} alt="restaurant cover"></img>
             </div>
             <section className="details">
               <section className="properties">
