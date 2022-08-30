@@ -1,4 +1,5 @@
 .info-panel {
+    height: 70vh;
     background-color: $white;
     width: 80%;
     @extend %section-format;
@@ -7,6 +8,7 @@
 
 .info-panel p {
     font-size: 1.2em;
+    margin: .2em;
 }
 
 // ------------------ header ------------------ //
@@ -24,7 +26,7 @@
 
 // ------------------ info box ------------------ //
 .information {
-    padding: 20px;
+    padding-top: 2vh;
     display: flex;
     justify-content: center;
     width: 100%;
@@ -32,7 +34,7 @@
 
 .restaurant-image {
     width:25%;
-    height: 150px;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,7 +50,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 70%;
+    width: 73%;
 }
 
 
@@ -56,13 +58,17 @@
 .properties {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    width: 90%;
+    justify-content: space-between;
+    width: 98%;
 }
 
 .phone-container {
     display: flex;
     flex-direction: row;
+}
+
+.cuisine {
+    text-align: center;
 }
 
 // ------------------ info bottom div ------------------ //
@@ -73,7 +79,7 @@
 
 // ------------------ map ------------------ //
 .map-container {
-    height: 200px;
+    height: 27vh;
     width:100%;
     background-color: $dark-green;
     margin-bottom: 20px;

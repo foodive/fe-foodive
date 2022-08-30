@@ -24,7 +24,7 @@ const Recommendation = ({ restaurantData, setRestaurantData }) => {
                 <p className="cuisine">
                   {restaurantData.categories[0].title + ", "}
                   {restaurantData.categories[1].title  + ", "}
-                  {restaurantData.categories[2].title + ", "}
+                  {restaurantData.categories[2].title}
                 </p>
                 <p className="dot">●</p>
                 <p className="cost">{restaurantData.price}</p>
