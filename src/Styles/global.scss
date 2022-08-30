@@ -5,12 +5,18 @@
 @import "./helpers/variables";
 @import "./helpers/mixins";
 @import "./helpers/_placeholders";
+@import "./helpers/functions";
 
-/* Components: mostly for buttons and the like that cross pages
-/* ======================================================= */
-@import "./components/buttons";
 
 /* Components: mostly for buttons and the like that cross pages
 /* ======================================================= */
 @import "./pages/home";
-@import "./pages/app"
+@import "./pages/app";
+@import "./pages/recommendation";
+
+/* Components: mostly for buttons and the like that cross pages
+/* ======================================================= */
+@import "./components/buttons";
+@import "./components/splitters";
+@import "./components/options";
+@import "./components/footer";

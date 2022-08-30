@@ -1,11 +1,25 @@
-main {
-    background-color: $light-grey;
+.options-panel{
+    height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    width: 80%;
+    @extend %section-format;
+    border-radius: 25px;
+    margin: 30px;
+}
+
+.home-info {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+.home-info p {
+    margin: 1vh;
+}
 
-.submit {
-    height: 120px;
-    width: 500px;
+.about {
+    text-align: center;
+    width: 60%;
 }

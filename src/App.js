@@ -3,7 +3,7 @@ import Home from './Components/Home';
 import './Styles/global.scss';
 import { Link, Route } from 'react-router-dom'
 import Recommendation from './Components/Recommendation';
-
+import Footer from './Components/Footer';
 
 function App() {
 
@@ -18,6 +18,7 @@ function App() {
       </nav>
       <Route exact path='/' render={() => <Home setRestaurantData={setRestaurantData}/> } />
       <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} setRestaurantData={setRestaurantData}/>} />
+      <Footer />
     </>
   );
 }

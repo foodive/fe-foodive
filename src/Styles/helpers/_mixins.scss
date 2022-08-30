@@ -10,6 +10,11 @@
 // }
 
 //keep this
-@mixin corner-style($arc) {
-    border-radius: $arc;
+
+@mixin splitter($length) {
+    background-color: $light-grey;
+    height: 3px;
+    margin: 10px;
+    width: $length;
+    border-radius: 40px;
 }

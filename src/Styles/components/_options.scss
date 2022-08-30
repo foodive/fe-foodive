@@ -1,0 +1,29 @@
+.options-container {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    background-color: $white;
+}
+
+// buttons //
+.option-unchecked {
+    background-color: $brown;
+}
+
+// scrollbar //
+.options-container::-webkit-scrollbar {
+    width: 20px;
+    margin-right: 200px;
+}
+
+.options-container::-webkit-scrollbar-track {
+    background-color: $mid-grey;
+}
+
+.options-container::-webkit-scrollbar-thumb {
+    background-color: $light-grey;
+    border-radius: 25px;
+}

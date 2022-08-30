@@ -7,9 +7,15 @@ import { data } from "../mockData";
 const Home = ({ setRestaurantData }) => {
     return (
         <main>
-            <section className="about">about our app</section>
-            <p>location input</p>
-            <Options />
+            <section className="home-info">
+            <p className="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
+veniam, quis nostrud </p>
+            <p>200 E Colfax Ave, Denver, CO 80203</p>
+            </section>
+            <section className="options-panel">
+                <Options />
+            </section>
             <Link to={'/recommendation'}>
               <button onClick={() => setRestaurantData(data)} className="submit">Search for restaurant</button>
             </Link>
