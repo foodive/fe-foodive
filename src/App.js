@@ -4,10 +4,23 @@ import './Styles/global.scss';
 import { Link, Route } from 'react-router-dom'
 import Recommendation from './Components/Recommendation';
 import Footer from './Components/Footer';
-import apiKey from './env';
+// import apiKey from './env';
 
 function App() {
 
+  const [location, setLocation] = useState({latitude: null, longitude: null})
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        console.log("lat", position.coords.latitude)
+        console.log("long", position.coords.longitude)
+      })
+    } else {
+      alert("Geolocation is not supported")
+    }
+  }
+getLocation()
   const [restaurantData, setRestaurantData] = useState(null);
   console.log(restaurantData)
   return (
