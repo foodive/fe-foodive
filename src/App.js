@@ -4,6 +4,7 @@ import './Styles/global.scss';
 import { Link, Route } from 'react-router-dom'
 import Recommendation from './Components/Recommendation';
 import Footer from './Components/Footer';
+import apiKey from './env';
 
 function App() {
 
