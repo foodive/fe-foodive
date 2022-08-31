@@ -8,7 +8,8 @@ import Footer from './Components/Footer';
 function App() {
 
   const [restaurantData, setRestaurantData] = useState(null);
-  const [location, setLocation] = useState({latitude: null, longitude: null})
+  const [location, setLocation] = useState({latitude: null, longitude: null});
+  const [cuisine, setCuisine] = useState("");
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -29,7 +30,7 @@ function App() {
           <h1>Foodive</h1>
         </Link>
       </nav>
-      <Route exact path='/' render={() => <Home setRestaurantData={setRestaurantData}/> } />
+      <Route exact path='/' render={() => <Home setRestaurantData={setRestaurantData} cuisine={cuisine} setCuisine={setCuisine}/> } />
       <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} setRestaurantData={setRestaurantData} location={location} />} />
       <Footer />
     </>

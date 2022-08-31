@@ -4,7 +4,7 @@ import "../Styles/global.scss"
 import Options from "./Options";
 import { data } from "../mockData";
 
-const Home = ({ setRestaurantData }) => {
+const Home = ({ setRestaurantData, cuisine, setCuisine }) => {
     return (
         <main>
             <section className="home-info">
@@ -14,7 +14,7 @@ veniam, quis nostrud </p>
             <p>200 E Colfax Ave, Denver, CO 80203</p>
             </section>
             <section className="options-panel">
-                <Options />
+              <Options cuisine={cuisine} setCuisine={setCuisine} />
             </section>
             <Link to={'/recommendation'}>
               <button onClick={() => setRestaurantData(data)} className="submit">Search for restaurant</button>
