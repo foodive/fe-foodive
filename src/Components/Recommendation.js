@@ -22,9 +22,7 @@ const Recommendation = ({ restaurantData, setRestaurantData, location }) => {
                 </div>
                 <p className="dot">●</p>
                 <p className="cuisine">
-                  {restaurantData.categories[0].title + ", "}
-                  {restaurantData.categories[1].title  + ", "}
-                  {restaurantData.categories[2].title}
+                  {restaurantData.categories.category1 + ", "}
                 </p>
                 <p className="dot">●</p>
                 <p className="cost">{restaurantData.price}</p>
@@ -37,7 +35,7 @@ const Recommendation = ({ restaurantData, setRestaurantData, location }) => {
               <div className="info-splitter"></div>
               <section className="address-container">
                 <p className="address">
-                  {restaurantData.location.display_address[0] + ", "}{restaurantData.location.display_address[1]}
+                  {restaurantData.display_address[0] + ", "}{restaurantData.display_address[1]}
                 </p> 
               </section>
             </section>

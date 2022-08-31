@@ -24,7 +24,7 @@ function App() {
   const retrieveRestaurant = () => {
     getRestaurant()
     .then((dataFetch) => {
-      console.log(dataFetch)
+      console.log(dataFetch.data.attributes)
       setRestaurantData(dataFetch.data.attributes)
     })
     .catch((error) => {
