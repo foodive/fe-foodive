@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Home from './Components/Home';
 import './Styles/global.scss';
 import { Link, Route } from 'react-router-dom'
@@ -8,7 +8,20 @@ import Footer from './Components/Footer';
 function App() {
 
   const [restaurantData, setRestaurantData] = useState(null);
-  console.log(restaurantData)
+  const [location, setLocation] = useState({latitude: null, longitude: null})
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+       setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude})
+      })
+    } else {
+      alert("Geolocation is not supported")
+    }
+  }
+
+  useEffect(() => { getLocation() }, [])
+
   return (
     <>
       <nav>
@@ -17,7 +30,7 @@ function App() {
         </Link>
       </nav>
       <Route exact path='/' render={() => <Home setRestaurantData={setRestaurantData}/> } />
-      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} setRestaurantData={setRestaurantData}/>} />
+      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} setRestaurantData={setRestaurantData} location={location} />} />
       <Footer />
     </>
   );
