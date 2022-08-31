@@ -4,7 +4,6 @@ import './Styles/global.scss';
 import { Link, Route } from 'react-router-dom'
 import Recommendation from './Components/Recommendation';
 import Footer from './Components/Footer';
-import apiKey from './env';
 
 function App() {
 
@@ -31,7 +30,7 @@ function App() {
         </Link>
       </nav>
       <Route exact path='/' render={() => <Home setRestaurantData={setRestaurantData}/> } />
-      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} setRestaurantData={setRestaurantData} location={location} apiKey={apiKey} />} />
+      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} setRestaurantData={setRestaurantData} location={location} />} />
       <Footer />
     </>
   );

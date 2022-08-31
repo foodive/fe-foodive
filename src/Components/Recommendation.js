@@ -1,7 +1,7 @@
 import React from "react";
 import { data2 } from "../mockData";
 
-const Recommendation = ({ restaurantData, setRestaurantData, location, apiKey }) => {
+const Recommendation = ({ restaurantData, setRestaurantData, location }) => {
   if (!restaurantData) {
     return <p>error</p>;
   } else {
@@ -45,7 +45,7 @@ const Recommendation = ({ restaurantData, setRestaurantData, location, apiKey })
           <div className="section-splitter"></div>
           <section className="map-container">
             {location.latitude && location.longitude ? 
-            <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},${location.longitude}&zoom=14&size=400x300&sensor=false&markers=color:red%7C${location.latitude},${location.longitude}&key=${apiKey}`} alt='Restaurant location on map'/>:
+            <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},${location.longitude}&zoom=14&size=400x300&sensor=false&markers=color:red%7C${location.latitude},${location.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`} alt='Restaurant location on map'/>:
             null
             }
           </section>
