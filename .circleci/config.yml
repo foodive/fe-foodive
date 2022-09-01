@@ -15,9 +15,9 @@ jobs:
       - run :
           name : Run build
           command: npm run build
-      - run:
-          name : Run serve
-          command: serve -s build
+      # - run:
+      #     name : Run serve
+      #     command: serve -s build
       - persist_to_workspace:
           root: ~/project
           paths:
