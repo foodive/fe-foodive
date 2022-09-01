@@ -9,7 +9,8 @@ import getRestaurant from './apiCall';
 function App() {
 
   const [restaurantData, setRestaurantData] = useState(null);
-  const [location, setLocation] = useState({latitude: null, longitude: null})
+  const [location, setLocation] = useState({latitude: null, longitude: null});
+  const [cuisine, setCuisine] = useState("");
 
   const getLocation = () => {
     if (navigator.geolocation) {
