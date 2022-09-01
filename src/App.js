@@ -22,7 +22,7 @@ function App() {
   }
 
   const retrieveRestaurant = () => {
-    getRestaurant()
+    getRestaurant(location.latitude, location.longitude)
     .then((dataFetch) => {
       console.log(dataFetch.data.attributes)
       setRestaurantData(dataFetch.data.attributes)
@@ -41,7 +41,7 @@ function App() {
           <h1>Foodive</h1>
         </Link>
       </nav>
-      <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant}/> } />
+      <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant} /> } />
       <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} retrieveRestaurant={retrieveRestaurant} location={location} />} />
       <Footer />
     </>
