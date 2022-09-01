@@ -1,5 +1,4 @@
 import React from "react";
-import { data2 } from "../mockData";
 
 const Recommendation = ({ restaurantData, location, retrieveRestaurant }) => {
   console.log(location.latitude)
