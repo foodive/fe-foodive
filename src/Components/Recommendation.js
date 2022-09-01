@@ -1,7 +1,8 @@
 import React from "react";
-import { data2 } from "../mockData";
 
-const Recommendation = ({ restaurantData, setRestaurantData, location }) => {
+const Recommendation = ({ restaurantData, location, retrieveRestaurant }) => {
+  console.log(location.latitude)
+  console.log(location.longitude)
   if (!restaurantData) {
     return <p>error</p>;
   } else {
@@ -22,9 +23,7 @@ const Recommendation = ({ restaurantData, setRestaurantData, location }) => {
                 </div>
                 <p className="dot">●</p>
                 <p className="cuisine">
-                  {restaurantData.categories[0].title + ", "}
-                  {restaurantData.categories[1].title  + ", "}
-                  {restaurantData.categories[2].title}
+                  {restaurantData.categories.category1 + ", "}
                 </p>
                 <p className="dot">●</p>
                 <p className="cost">{restaurantData.price}</p>
@@ -37,7 +36,7 @@ const Recommendation = ({ restaurantData, setRestaurantData, location }) => {
               <div className="info-splitter"></div>
               <section className="address-container">
                 <p className="address">
-                  {restaurantData.location.display_address[0] + ", "}{restaurantData.location.display_address[1]}
+                  {restaurantData.display_address[0] + ", "}{restaurantData.display_address[1]}
                 </p> 
               </section>
             </section>
@@ -45,12 +44,12 @@ const Recommendation = ({ restaurantData, setRestaurantData, location }) => {
           <div className="section-splitter"></div>
           <section className="map-container">
             {location.latitude && location.longitude ? 
-            <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${location.latitude},${location.longitude}&zoom=14&size=400x300&sensor=false&markers=color:red%7C${location.latitude},${location.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`} alt='Restaurant location on map'/>:
+            <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&zoom=14&size=400x300&sensor=false&markers=color:red%7C${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`} alt='Restaurant location on map'/>:
             null
             }
           </section>
         </section>
-        <button onClick={() => setRestaurantData(data2)} className="submit">
+        <button onClick={() => retrieveRestaurant()} className="submit">
           New Random Restaurant
         </button>
       </main>

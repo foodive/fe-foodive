@@ -4,6 +4,7 @@ import './Styles/global.scss';
 import { Link, Route } from 'react-router-dom'
 import Recommendation from './Components/Recommendation';
 import Footer from './Components/Footer';
+import getRestaurant from './apiCall';
 
 function App() {
 
@@ -21,6 +22,17 @@ function App() {
     }
   }
 
+  const retrieveRestaurant = () => {
+    getRestaurant(location.latitude, location.longitude)
+    .then((dataFetch) => {
+      console.log(dataFetch.data.attributes)
+      setRestaurantData(dataFetch.data.attributes)
+    })
+    .catch((error) => {
+      console.log(error)
+    })
+  }
+
   useEffect(() => { getLocation() }, [])
 
   return (
@@ -30,8 +42,8 @@ function App() {
           <h1>Foodive</h1>
         </Link>
       </nav>
-      <Route exact path='/' render={() => <Home setRestaurantData={setRestaurantData} cuisine={cuisine} setCuisine={setCuisine}/> } />
-      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} setRestaurantData={setRestaurantData} location={location} />} />
+      <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant} cuisine={cuisine} setCuisine={setCuisine} /> } />
+      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} retrieveRestaurant={retrieveRestaurant} location={location} />} />
       <Footer />
     </>
   );

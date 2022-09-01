@@ -2,9 +2,9 @@ import React from "react";
 import { Link } from "react-router-dom";
 import "../Styles/global.scss"
 import Options from "./Options";
-import { data } from "../mockData";
 
-const Home = ({ setRestaurantData, cuisine, setCuisine }) => {
+const Home = ({ retrieveRestaurant, cuisine, setCuisine }) => {
+
     return (
         <main>
             <section className="home-info">
@@ -17,7 +17,7 @@ veniam, quis nostrud </p>
               <Options cuisine={cuisine} setCuisine={setCuisine} />
             </section>
             <Link to={'/recommendation'}>
-              <button onClick={() => setRestaurantData(data)} className="submit">Search for restaurant</button>
+              <button onClick={() => retrieveRestaurant()} className="submit">Search for restaurant</button>
             </Link>
 
         </main>
