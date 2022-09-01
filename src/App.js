@@ -42,7 +42,7 @@ function App() {
           <h1>Foodive</h1>
         </Link>
       </nav>
-      <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant} /> } />
+      <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant} cuisine={cuisine} setCuisine={setCuisine} /> } />
       <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} retrieveRestaurant={retrieveRestaurant} location={location} />} />
       <Footer />
     </>
