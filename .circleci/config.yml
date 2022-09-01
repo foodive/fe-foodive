@@ -29,7 +29,7 @@ workflows:
   test_foodive:
     jobs:
       - cypress/run:
-          start: npm start
+          start: npm run start-dev
       - build
       - deploy:
           requires:
