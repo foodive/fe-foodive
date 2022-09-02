@@ -1,6 +1,15 @@
 import React from "react";
 
 const Recommendation = ({ restaurantData, location, retrieveRestaurant }) => {
+  
+  let displayedCategories
+  if (restaurantData.categories.length > 1) {
+    console.log("YES!")
+    displayedCategories = restaurantData.categories.join(", ")
+  } else if (restaurantData.categories.length === 1){
+    displayedCategories = restaurantData.categories[0]
+  }
+  
   if (!restaurantData) {
     return <p>error</p>;
   } else {
@@ -21,7 +30,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant }) => {
                 </div>
                 <p className="dot">●</p>
                 <p className="cuisine">
-                  {restaurantData.categories.category1 + ", "}
+                  {displayedCategories}
                 </p>
                 <p className="dot">●</p>
                 <p className="cost">{restaurantData.price}</p>

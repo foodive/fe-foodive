@@ -4,7 +4,7 @@ const options = [
     {displayName: "Italian", requestName: "italian"},
     {displayName: "Fast Food", requestName: "hotdogs"},
     {displayName: "Thai", requestName: "thai"},
-    {displayName: "Japanese", requestName: "japansese"},
+    {displayName: "Japanese", requestName: "japanese"},
     {displayName: "Vietnamese", requestName: "vietnamese"},
     {displayName: "Chinese", requestName: "chinese"},
     {displayName: "Mediterranean", requestName: "mediterranean"},
