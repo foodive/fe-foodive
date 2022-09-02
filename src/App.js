@@ -5,10 +5,11 @@ import { Link, Route } from 'react-router-dom'
 import Recommendation from './Components/Recommendation';
 import Footer from './Components/Footer';
 import getRestaurant from './apiCall';
+import emptyData from './emptyData';
 
 function App() {
 
-  const [restaurantData, setRestaurantData] = useState(null);
+  const [restaurantData, setRestaurantData] = useState(emptyData);
   const [location, setLocation] = useState({latitude: null, longitude: null});
   const [cuisine, setCuisine] = useState("");
 
@@ -25,6 +26,7 @@ function App() {
   const retrieveRestaurant = () => {
     getRestaurant(location.latitude, location.longitude, cuisine)
     .then((dataFetch) => {
+      console.log(dataFetch.data.attributes)
       setRestaurantData(dataFetch.data.attributes)
     })
     .catch((error) => {
