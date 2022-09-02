@@ -1,8 +1,6 @@
 import React from "react";
 
 const Recommendation = ({ restaurantData, location, retrieveRestaurant }) => {
-  console.log(location.latitude)
-  console.log(location.longitude)
   if (!restaurantData) {
     return <p>error</p>;
   } else {

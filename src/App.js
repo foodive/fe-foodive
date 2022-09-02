@@ -23,9 +23,8 @@ function App() {
   }
 
   const retrieveRestaurant = () => {
-    getRestaurant(location.latitude, location.longitude)
+    getRestaurant(location.latitude, location.longitude, cuisine)
     .then((dataFetch) => {
-      console.log(dataFetch.data.attributes)
       setRestaurantData(dataFetch.data.attributes)
     })
     .catch((error) => {
@@ -34,7 +33,7 @@ function App() {
   }
 
   useEffect(() => { getLocation() }, [])
-
+  
   return (
     <>
       <nav>
