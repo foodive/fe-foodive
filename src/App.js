@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Home from './Components/Home';
 import './Styles/global.scss';
-import { Link, Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom';
 import Recommendation from './Components/Recommendation';
 import Footer from './Components/Footer';
 import getRestaurant from './apiCall';
@@ -17,10 +17,10 @@ function App() {
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-       setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+        setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
       });
     } else {
-      alert("Geolocation is not supported")
+      setError("Geolocation is not supported.");
     }
   }
 
@@ -34,18 +34,32 @@ function App() {
     });
   }
 
-  useEffect(() => { getLocation() }, [])
+  useEffect(() => { getLocation() }, []);
   
   return (
     <>
       <nav>
         <Link to={'/'} style={{textDecoration: 'none'}}>
           <h1>Foodive</h1>
+          <button onClick={() => setError({message: 'Error'})}>Error</button>
         </Link>
       </nav>
-      {error && <Error error={error} />}
-      <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant} cuisine={cuisine} setCuisine={setCuisine} location={location} /> } />
-      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} retrieveRestaurant={retrieveRestaurant} location={location} error={error} />} />
+      {error && <Error setError={setError} error={error} />}
+      <Route exact path='/' render={() => 
+        <Home retrieveRestaurant={retrieveRestaurant} 
+          cuisine={cuisine} 
+          setCuisine={setCuisine} 
+          location={location} 
+        />} 
+      />
+      <Route path='/recommendation' render={() => 
+        <Recommendation 
+          restaurantData={restaurantData} 
+          retrieveRestaurant={retrieveRestaurant} 
+          location={location} 
+          error={error} 
+        />} 
+      />
       <Footer />
     </>
   );

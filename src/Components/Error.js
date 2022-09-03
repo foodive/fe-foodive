@@ -1,13 +1,13 @@
-const Error = ({ error }) => {
+const Error = ({ setError, error }) => {
   return (
     <div className="error">
-      <div className="shadow"></div>
+      <div className="shadow" onClick={() => setError(null)}></div>
       <section className="error-container">
         <header>ERROR</header>
         <p className="error-text">{error.message}</p>
       </section>
     </div>
-  )
+  );
 }
 
 export default Error;
