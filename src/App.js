@@ -6,18 +6,19 @@ import Recommendation from './Components/Recommendation';
 import Footer from './Components/Footer';
 import getRestaurant from './apiCall';
 import emptyData from './emptyData';
+import Error from './Components/Error';
 
 function App() {
-
   const [restaurantData, setRestaurantData] = useState(emptyData);
   const [location, setLocation] = useState({latitude: null, longitude: null});
   const [cuisine, setCuisine] = useState("");
+  const [error, setError] = useState(null);
 
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-       setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude})
-      })
+       setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+      });
     } else {
       alert("Geolocation is not supported")
     }
@@ -26,12 +27,12 @@ function App() {
   const retrieveRestaurant = () => {
     getRestaurant(location.latitude, location.longitude, cuisine)
     .then((dataFetch) => {
-      console.log(dataFetch.data.attributes)
       setRestaurantData(dataFetch.data.attributes)
     })
-    .catch((error) => {
-      console.log(error)
-    })
+    .catch((err) => {
+      console.log(err)
+      setError(err)
+    });
   }
 
   useEffect(() => { getLocation() }, [])
@@ -41,8 +42,10 @@ function App() {
       <nav>
         <Link to={'/'} style={{textDecoration: 'none'}}>
           <h1>Foodive</h1>
+          <button onClick={() => setError("this is an error")}className="error-button">ERROR</button>
         </Link>
       </nav>
+      {error && <Error error={error} />}
       <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant} cuisine={cuisine} setCuisine={setCuisine} location={location} /> } />
       <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} retrieveRestaurant={retrieveRestaurant} location={location} />} />
       <Footer />
