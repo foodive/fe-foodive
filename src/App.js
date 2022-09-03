@@ -41,12 +41,12 @@ function App() {
       <nav>
         <Link to={'/'} style={{textDecoration: 'none'}}>
           <h1>Foodive</h1>
-          <button onClick={() => setError({message: 'Error'})}>Error</button>
         </Link>
       </nav>
       {error && <Error setError={setError} error={error} />}
       <Route exact path='/' render={() => 
-        <Home retrieveRestaurant={retrieveRestaurant} 
+        <Home 
+          retrieveRestaurant={retrieveRestaurant} 
           cuisine={cuisine} 
           setCuisine={setCuisine} 
           location={location} 
