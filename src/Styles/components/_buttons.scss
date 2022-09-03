@@ -9,9 +9,19 @@ button {
     margin: 20px;
     border-radius: 15px;
     box-shadow: 0px 9px 9px 5px rgba(0, 0, 0, 0.5), inset 5px 5px 5px rgba(255, 255, 255, 0.5), inset -5px -5px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
 }
 
 .submit {
     height: 9vh;
     width: 65vh;
+}
+
+.unselected {
+    background-color: $brown;
+}
+
+.deactivated {
+    background-color: $brown;
+    cursor: auto;
 }
