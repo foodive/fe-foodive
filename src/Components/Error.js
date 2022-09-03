@@ -4,7 +4,7 @@ const Error = ({ error }) => {
       <div className="shadow"></div>
       <section className="error-container">
         <header>ERROR</header>
-        <p className="error-text">{error}</p>
+        <p className="error-text">{error.message}</p>
       </section>
     </div>
   )

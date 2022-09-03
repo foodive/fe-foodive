@@ -30,7 +30,6 @@ function App() {
       setRestaurantData(dataFetch.data.attributes)
     })
     .catch((err) => {
-      console.log(err)
       setError(err)
     });
   }
@@ -42,12 +41,11 @@ function App() {
       <nav>
         <Link to={'/'} style={{textDecoration: 'none'}}>
           <h1>Foodive</h1>
-          <button onClick={() => setError("this is an error")}className="error-button">ERROR</button>
         </Link>
       </nav>
       {error && <Error error={error} />}
       <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant} cuisine={cuisine} setCuisine={setCuisine} location={location} /> } />
-      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} retrieveRestaurant={retrieveRestaurant} location={location} />} />
+      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} retrieveRestaurant={retrieveRestaurant} location={location} error={error} />} />
       <Footer />
     </>
   );
