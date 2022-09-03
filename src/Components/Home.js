@@ -8,9 +8,10 @@ const Home = ({ retrieveRestaurant, cuisine, setCuisine }) => {
     return (
         <main>
             <section className="home-info">
-            <p className="about">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod 
-tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-veniam, quis nostrud </p>
+            <p className="about">
+                Hello and welcome to Foodive! Select a Cuisine type and click 
+                the search for restaurant button to find a random restaurant near you!
+            </p>
             <p>200 E Colfax Ave, Denver, CO 80203</p>
             </section>
             <section className="options-panel">
@@ -19,7 +20,6 @@ veniam, quis nostrud </p>
             <Link to={'/recommendation'}>
               <button onClick={() => retrieveRestaurant()} className="submit">Search for restaurant</button>
             </Link>
-
         </main>
     )
 }
