@@ -1,17 +1,12 @@
 import React from "react";
+import Error from "./Error";
 
-const Recommendation = ({ restaurantData, location, retrieveRestaurant }) => {
+const Recommendation = ({ restaurantData, location, retrieveRestaurant, error }) => {
   
-  let displayedCategories
-  if (restaurantData.categories.length > 1) {
-    console.log("YES!")
-    displayedCategories = restaurantData.categories.join(", ")
-  } else if (restaurantData.categories.length === 1){
-    displayedCategories = restaurantData.categories[0]
-  }
+  const displayedCategories = restaurantData.categories.join(", ");
   
-  if (!restaurantData) {
-    return <p>error</p>;
+  if (error) {
+    return <Error error={error} />
   } else {
     return (
       <main>
@@ -51,8 +46,8 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant }) => {
           <div className="section-splitter"></div>
           <section className="map-container">
             {location.latitude && location.longitude ? 
-            <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&zoom=14&size=400x300&sensor=false&markers=color:red%7C${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`} alt='Restaurant location on map'/>:
-            null
+              <img src={`https://maps.googleapis.com/maps/api/staticmap?center=${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&zoom=14&size=400x300&sensor=false&markers=color:red%7C${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`} alt='Restaurant location on map'/>
+              : null
             }
           </section>
         </section>
@@ -62,6 +57,6 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant }) => {
       </main>
     );
   }
-};
+}
 
 export default Recommendation;

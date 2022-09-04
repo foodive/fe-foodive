@@ -1,0 +1,31 @@
+.error {
+  display: flex;
+  justify-content: center;
+  height: 118vh;
+  width: 100%;
+  position: absolute;
+}
+
+.shadow {
+  z-index: 1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-color: $black;
+  opacity: .25;
+  cursor: pointer;
+}
+
+.error-container {
+  z-index: 2;
+  position: absolute;
+  @extend %section-format;
+  height: 30vh;
+  width: 60%;
+  background-color: $white;
+  opacity: 1;
+  margin-top: 20vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

@@ -1,40 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import Home from './Components/Home';
 import './Styles/global.scss';
-import { Link, Route } from 'react-router-dom'
+import { Link, Route } from 'react-router-dom';
 import Recommendation from './Components/Recommendation';
 import Footer from './Components/Footer';
 import getRestaurant from './apiCall';
 import emptyData from './emptyData';
+import Error from './Components/Error';
 
 function App() {
-
   const [restaurantData, setRestaurantData] = useState(emptyData);
   const [location, setLocation] = useState({latitude: null, longitude: null});
   const [cuisine, setCuisine] = useState("");
+  const [error, setError] = useState(null);
 
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition((position) => {
-       setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude})
-      })
+        setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+      });
     } else {
-      alert("Geolocation is not supported")
+      setError("Geolocation is not supported.");
     }
   }
 
   const retrieveRestaurant = () => {
     getRestaurant(location.latitude, location.longitude, cuisine)
     .then((dataFetch) => {
-      console.log(dataFetch.data.attributes)
       setRestaurantData(dataFetch.data.attributes)
     })
-    .catch((error) => {
-      console.log(error)
-    })
+    .catch((err) => {
+      setError(err)
+    });
   }
 
-  useEffect(() => { getLocation() }, [])
+  useEffect(() => { getLocation() }, []);
   
   return (
     <>
@@ -43,8 +43,23 @@ function App() {
           <h1>Foodive</h1>
         </Link>
       </nav>
-      <Route exact path='/' render={() => <Home retrieveRestaurant={retrieveRestaurant} cuisine={cuisine} setCuisine={setCuisine} /> } />
-      <Route path='/recommendation' render={() => <Recommendation restaurantData={restaurantData} retrieveRestaurant={retrieveRestaurant} location={location} />} />
+      {error && <Error setError={setError} error={error} />}
+      <Route exact path='/' render={() => 
+        <Home 
+          retrieveRestaurant={retrieveRestaurant} 
+          cuisine={cuisine} 
+          setCuisine={setCuisine} 
+          location={location} 
+        />} 
+      />
+      <Route path='/recommendation' render={() => 
+        <Recommendation 
+          restaurantData={restaurantData} 
+          retrieveRestaurant={retrieveRestaurant} 
+          location={location} 
+          error={error} 
+        />} 
+      />
       <Footer />
     </>
   );
