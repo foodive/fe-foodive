@@ -12,7 +12,7 @@ describe('homepage flow', () => {
   })
 
   it('should have a description', () => {
-    cy.contains('p', 'Hello and welcome to Foodive! Select a Cuisine type and click the search for restaurant button to find a random restaurant near you!')
+    cy.contains('p', 'Hello and welcome to Foodive! Select a Cuisine type and click the Search for Restaurant button to find a random restaurant near you!')
   })
 
   it('should have an options section', () => {
