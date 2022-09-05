@@ -8,6 +8,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
     if (location.latitude && location.longitude && cuisine !== ""){
       retrieveRestaurant()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location])
 
   const displayedCategories = restaurantData.categories.join(", ");
