@@ -16,11 +16,18 @@ function App() {
 
   const getLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+      navigator.geolocation.watchPosition(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+          setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+        })
+      }, (error) => {
+        console.log(error)
+        if (error.code === error.PERMISSION_DENIED) {
+          setError({message: 'We could not obtain your location. Please enable location permissions in settings.'})
+        }
       });
     } else {
-      setError("Geolocation is not supported.");
+      setError({message: "Geolocation is not supported."});
     }
   }
 
@@ -34,8 +41,10 @@ function App() {
     });
   }
 
-  useEffect(() => { getLocation() }, []);
-  
+  useEffect(() => {  
+    getLocation()
+  }, []);
+
   return (
     <>
       <nav>
@@ -52,12 +61,15 @@ function App() {
           location={location} 
         />} 
       />
-      <Route path='/recommendation' render={() => 
+      <Route path='/recommendation/:cuisine' render={({ match }) => 
         <Recommendation 
+          matchCuisine = {match.params.cuisine}
           restaurantData={restaurantData} 
           retrieveRestaurant={retrieveRestaurant} 
           location={location} 
           error={error} 
+          setCuisine={setCuisine}
+          cuisine={cuisine}
         />} 
       />
       <Footer />

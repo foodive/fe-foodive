@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "../Styles/global.scss";
 import Options from "./Options";
 
-const Home = ({ retrieveRestaurant, cuisine, setCuisine, location }) => {
+const Home = ({ cuisine, setCuisine, location }) => {
   return (
     <main>
       <section className="home-info">
@@ -17,8 +17,8 @@ const Home = ({ retrieveRestaurant, cuisine, setCuisine, location }) => {
       </section>
       { 
         location.latitude && location.longitude && cuisine !== "" ? 
-          <Link to={'/recommendation'}>
-            <button onClick={() => retrieveRestaurant()} className="submit">Search for Restaurant</button>
+          <Link to={`/recommendation/${cuisine}`}>
+            <button className="submit">Search for Restaurant</button>
           </Link>
         : 
           <button className="submit deactivated">Search for Restaurant</button>
