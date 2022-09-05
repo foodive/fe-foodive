@@ -34,8 +34,15 @@ function App() {
     });
   }
 
-  useEffect(() => { getLocation() }, []);
+  useEffect(() => { 
+    
+    getLocation()
+    
   
+  }, []);
+  if (location.latitude) {
+    console.log('DONE')
+  }
   return (
     <>
       <nav>
@@ -52,12 +59,15 @@ function App() {
           location={location} 
         />} 
       />
-      <Route path='/recommendation' render={() => 
+      <Route path='/recommendation/:cuisine' render={({ match }) => 
         <Recommendation 
+          matchCuisine = {match.params.cuisine}
           restaurantData={restaurantData} 
           retrieveRestaurant={retrieveRestaurant} 
           location={location} 
           error={error} 
+          setCuisine={setCuisine}
+          cuisine={cuisine}
         />} 
       />
       <Footer />

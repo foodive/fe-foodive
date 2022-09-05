@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Error from "./Error";
 
-const Recommendation = ({ restaurantData, location, retrieveRestaurant, error }) => {
-  
+const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, setCuisine, matchCuisine, cuisine }) => {
+
+  useEffect(() => {
+    setCuisine(`${matchCuisine}`)
+    if (location.latitude && location.longitude && cuisine !== ""){
+      retrieveRestaurant()
+    }
+  }, [location])
+
   const displayedCategories = restaurantData.categories.join(", ");
   
   if (error) {
