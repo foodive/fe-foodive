@@ -33,10 +33,14 @@ describe('Recommendation page flow', () => {
   })
 
   it('should contain an image preview', () => {
-    cy.get('.restaurant-image').get('img')
+    cy.get('.restaurant-image').get('img').should('have.attr', 'src', 'https://s3-media2.fl.yelpcdn.com/bphoto/2fZeq9jDHjrrqPjCulGc8A/o.jpg')
   })
 
-  it.skip('should contain ', () => {
-    cy.get('.restaurant-image').get('img')
+  it('should contain restaurant information', () => {
+    cy.get('.ratings').contains('4.5')
+    cy.get('.cuisine').contains('Breakfast & Brunch, Southern, Coffee & Tea')
+    cy.get('.cost').contains('$$')
+    cy.get('.phone-number').contains('(206) 728-2219')
+    cy.get('.address').contains('2303 3rd Ave, Seattle, WA 98121')
   })
 })
