@@ -18,10 +18,8 @@ describe('Recommendation page flow', () => {
       fixture: "restaurant1.json",
       statusCode: 200
     })
-    cy.visit("http://localhost:3000/", mockLocation(47.6062, -122.3321))
-    cy.wait(10000)
-    cy.get('.options-container').get('button').contains("Breakfast").click()
-    cy.get('.submit').click()
+    cy.visit("http://localhost:3000/recommendation/breakfast_brunch", mockLocation(47.6062, -122.3321))
+    cy.wait(5000)
   })
 
   it('Should take user to new page', () => {
