@@ -30,7 +30,6 @@ workflows:
     jobs:
       - cypress/run:
           start: npm run start-dev
-          wait-on: 'http://localhost:3000'
       - build
       - deploy:
           requires:

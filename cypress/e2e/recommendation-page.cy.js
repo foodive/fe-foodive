@@ -19,7 +19,7 @@ describe('Recommendation page flow', () => {
       statusCode: 200
     })
     cy.visit("http://localhost:3000/", mockLocation(47.6062, -122.3321))
-    cy.wait(5000)
+    cy.wait(10000)
     cy.get('.options-container').get('button').contains("Breakfast").click()
     cy.get('.submit').click()
   })
