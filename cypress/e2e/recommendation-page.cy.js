@@ -43,4 +43,13 @@ describe('Recommendation page flow', () => {
     cy.get('.phone-number').contains('(206) 728-2219')
     cy.get('.address').contains('2303 3rd Ave, Seattle, WA 98121')
   })
+
+  it.only('Should be able to display new resaurant', () => {
+    cy.intercept("GET", "https://foodive-be.herokuapp.com/restaurants/?location=47.6062,-122.3321&categories=breakfast_brunch", {
+      fixture: "restaurant2.json",
+      statusCode: 200
+    })
+    cy.get('.submit').click()
+    cy.get('.info-header').contains('h2', 'Storyville Coffee Company')
+  })
 })
