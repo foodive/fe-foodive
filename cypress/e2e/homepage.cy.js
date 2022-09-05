@@ -24,6 +24,12 @@ describe('homepage flow', () => {
     cy.get('.submit')
   })
 
+  it('should be able to select a cuisine', () => {
+    cy.get('.options-container').get('button').contains('Mexican').click()
+    cy.get('.options-container').get('button').contains('Mexican').should('have.attr', 'class').should('include', 'option-checked')
+
+  })
+
   it('should have contact info', () => {
     cy.get('.footer').contains('h3', 'Contact Us')
     cy.get('.project-lead').contains('.footer-text', 'Luke Swenson')

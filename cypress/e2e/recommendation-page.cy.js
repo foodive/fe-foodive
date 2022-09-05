@@ -1,10 +1,5 @@
-describe.skip('', () => {
-  it('should be able to select a cuisine', () => {
-    cy.visit("http://localhost:3000/")
-    cy.get('.options-container').get('button').contains('Mexican').click()
-    cy.get('.options-container').get('button').contains('Mexican').should('have.attr', 'class').should('include', 'option-checked')
-
-  })
+describe.skip('Recommendation page flow', () => {
+  
   beforeEach(() => {
     cy.visit("http://localhost:3000/")
     cy.get('.options-container').get('button').contains('Mexican').click()
