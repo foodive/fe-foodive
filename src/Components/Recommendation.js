@@ -15,6 +15,8 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
   
   if (error) {
     return <Error error={error} />
+  } else if (restaurantData.name === '') {
+    return <h2>Loading...</h2>
   } else {
     return (
       <main>
