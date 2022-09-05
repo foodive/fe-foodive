@@ -16,11 +16,18 @@ function App() {
 
   const getLocation = () => {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+      navigator.geolocation.watchPosition(() => {
+        navigator.geolocation.getCurrentPosition((position) => {
+          setLocation({latitude: position.coords.latitude, longitude: position.coords.longitude});
+        })
+      }, (error) => {
+        console.log(error)
+        if (error.code === error.PERMISSION_DENIED) {
+          setError({message: 'We could not obtain your location. Please enable location permissions in settings.'})
+        }
       });
     } else {
-      setError("Geolocation is not supported.");
+      setError({message: "Geolocation is not supported."});
     }
   }
 
@@ -34,15 +41,10 @@ function App() {
     });
   }
 
-  useEffect(() => { 
-    
+  useEffect(() => {  
     getLocation()
-    
-  
   }, []);
-  if (location.latitude) {
-    console.log('DONE')
-  }
+
   return (
     <>
       <nav>
