@@ -26,8 +26,9 @@ describe('homepage flow', () => {
 
   it('should be able to select a cuisine', () => {
     cy.get('.options-container').get('button').contains('Mexican').click()
-    cy.get('.options-container').get('button').contains('Mexican').should('have.attr', 'class').should('include', 'option-checked')
-
+    cy.get('.options-container').get('button').contains('Mexican').should(($input) => {
+      expect($input).to.not.have.class('unselected')
+    })
   })
 
   it('should have contact info', () => {
