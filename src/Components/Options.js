@@ -3,7 +3,8 @@ import "../Styles/global.scss"
 import options from "../options_data";
 
 const Options = ({ cuisine, setCuisine }) => {
-  const optionButtons = options.map((option, index) => {
+  const alphabetizedOptions = options.sort((a, b) => a.displayName.localeCompare(b.displayName));
+  const optionButtons = alphabetizedOptions.map((option, index) => {
     if (cuisine === option.requestName) {
       return <button key={index} className="option" id={option.requestName}>{option.displayName}</button>
     }
