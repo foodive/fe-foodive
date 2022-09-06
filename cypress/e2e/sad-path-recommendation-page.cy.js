@@ -1,5 +1,5 @@
 describe("Recommendation page sad paths", () => {
-  it("should display error message if the page is not found", () => {
+  it.skip("should display error message if the page is not found", () => {
     function mockLocation(latitude, longitude) {
       return {
         onBeforeLoad(win) {
@@ -19,7 +19,7 @@ describe("Recommendation page sad paths", () => {
     .get(".error-text").contains("Sorry, something went wrong!")
   })
 
-  it("should display error message if the server is down", () => {
+  it.skip("should display error message if the server is down", () => {
     function mockLocation(latitude, longitude) {
       return {
         onBeforeLoad(win) {
