@@ -21,5 +21,17 @@
 
 .about {
     text-align: center;
-    width: 60%;
+    width: 70%;
+}
+
+@media screen and (max-width: 900px) {
+    .about {
+        font-size: 1.3em;
+    }
+}
+
+@media screen and (max-width: 665px) {
+    .about {
+        font-size: 1.2em;
+    }
 }

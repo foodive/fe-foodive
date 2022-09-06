@@ -22,3 +22,37 @@
     background-color: $light-grey;
     border-radius: 25px;
 }
+
+@media screen and (max-width: 500px) {
+    .options-panel {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            overflow: scroll;
+            background-color: $white;
+            overflow-x: hidden;
+    }
+
+    .options-panel::-webkit-scrollbar {
+        width: 20px;
+        margin-right: 200px;
+    }
+    
+    .options-panel::-webkit-scrollbar-track {
+        background-color: $mid-grey;
+    }
+    
+    .options-panel::-webkit-scrollbar-thumb {
+        background-color: $light-grey;
+        border-radius: 25px;
+    }
+
+    .options-container {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        height:auto;
+        overflow-y: auto;
+        align-items: center;
+    }
+}
