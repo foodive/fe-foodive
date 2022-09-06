@@ -1,0 +1,27 @@
+{
+    "data": {
+        "id": "null",
+        "type": "restaurant_info",
+        "attributes": {
+            "name": "Storyville Coffee Company",
+            "image_url": "https://s3-media3.fl.yelpcdn.com/bphoto/TecGMknBtZNXGSey2DnFyQ/o.jpg",
+            "categories": [
+                "Coffee & Tea",
+                "Bakeries",
+                "Breakfast & Brunch"
+            ],
+            "rating": 4.5,
+            "coordinates": {
+                "latitude": 47.60895949363687,
+                "longitude": -122.34043157053927
+            },
+            "price": "$$",
+            "display_address": [
+                "94 Pike St",
+                "Ste 34",
+                "Seattle, WA 98101"
+            ],
+            "display_phone": "(206) 780-5777"
+        }
+    }
+}
