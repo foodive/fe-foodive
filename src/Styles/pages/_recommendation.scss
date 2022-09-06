@@ -79,8 +79,31 @@
 
 // ------------------ map ------------------ //
 .map-container {
-    height: 27vh;
+    height: 32vh;
     width:100%;
     background-color: $dark-green;
-    margin-bottom: 20px;
+    overflow-y: scroll;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.map-container::-webkit-scrollbar {
+    width: 20px;
+    margin-right: 200px;
+}
+
+.map-container::-webkit-scrollbar-track {
+    background-color: $mid-grey;
+}
+
+.map-container::-webkit-scrollbar-thumb {
+    background-color: $light-grey;
+    border-radius: 25px;
+}
+
+.map-img {
+    width: 100%;
 }
