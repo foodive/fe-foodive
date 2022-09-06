@@ -56,7 +56,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
           <div className="section-splitter"></div>
           <section className="map-container">
             {location.latitude && location.longitude ? 
-              <img 
+              <img className="map"
                 src={`https://maps.googleapis.com/maps/api/staticmap?center=${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&zoom=11.5&size=400x300&markers=color:red%7Clabel:B%7C${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&markers=color:green%7Clabel:A%7C${location.latitude},${location.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`}
                 alt='Restaurant location on map'
               />
