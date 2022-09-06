@@ -42,7 +42,7 @@ describe('Recommendation page flow', () => {
     cy.get('.address').contains('2303 3rd Ave, Seattle, WA 98121')
   })
 
-  it.only('should display a map', () => {
+  it.skip('should display a map', () => {
     cy.get('.map').should('have.attr', 'src', 'https://maps.googleapis.com/maps/api/staticmap?center=47.614767,-122.345278&zoom=11.5&size=400x300&markers=color:red%7Clabel:B%7C47.614767,-122.345278&markers=color:green%7Clabel:A%7C47.6062,-122.3321&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8')
   })
 
