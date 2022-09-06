@@ -35,5 +35,18 @@ describe('homepage flow', () => {
     cy.get('.footer').contains('h3', 'Contact Us')
     cy.get('.project-lead').contains('.footer-text', 'Luke Swenson')
   })
+
+  //This test will work only if you deny location on your browser.
+  it.only('should show an error message if user denies permission to location', () => {
+    cy.visit('http://localhost:3000/', {
+      onBeforeLoad(win) {
+        const err = new Error('User denied')
+        err.code = GeolocationPositionError.PERMISSION_DENIED
+        cy.stub(win.navigator.geolocation, 'getCurrentPosition')
+          .callsArgWith(0, err).as('getCurrentPosition')
+      }
+    })
+    cy.get(".error-text").contains("We could not obtain your location. Please enable location permissions in settings.")
+  })
 });
 
