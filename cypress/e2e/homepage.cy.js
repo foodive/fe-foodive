@@ -37,7 +37,7 @@ describe('homepage flow', () => {
   })
 
   //This test will work only if you deny location on your browser.
-  it.only('should show an error message if user denies permission to location', () => {
+  it.skip('should show an error message if user denies permission to location', () => {
     cy.visit('http://localhost:3000/', {
       onBeforeLoad(win) {
         const err = new Error('User denied')
