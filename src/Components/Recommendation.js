@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "../Styles/global.scss";
 import Error from "./Error";
 import Loading from "./Loading";
 
@@ -6,11 +7,11 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
 
   useEffect(() => {
     setCuisine(`${matchCuisine}`)
-    if (location.latitude && location.longitude && cuisine !== ""){
+    if (location.latitude && location.longitude && cuisine !== "") {
       retrieveRestaurant()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location])
+  }, [location]);
 
   const displayedCategories = restaurantData.categories.join(", ");
   
@@ -36,7 +37,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
               <div className="info-splitter"></div>
               <section className="properties">
                 <div className="ratings">
-                  <p>{restaurantData.rating}</p>
+                  <p>{restaurantData.rating} ⭐️</p>
                 </div>
                 <p className="dot">●</p>
                 <p className="cost">{restaurantData.price}</p>
@@ -59,7 +60,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
             {location.latitude && location.longitude ? 
               <img 
                 className="map-img"
-                src={`https://maps.googleapis.com/maps/api/staticmap?center=${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&zoom=11.5&size=400x300&markers=color:red%7Clabel:B%7C${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&markers=color:green%7Clabel:A%7C${location.latitude},${location.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`}
+                src={`https://maps.googleapis.com/maps/api/staticmap?center=${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&zoom=10.5&size=400x300&markers=color:orange%7Clabel:B%7C${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&markers=color:purple%7Clabel:A%7C${location.latitude},${location.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`}
                 alt='Restaurant location on map'
               />
               : null

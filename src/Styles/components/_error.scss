@@ -17,8 +17,8 @@
 }
 
 .error-container {
-  z-index: 2;
   position: absolute;
+  z-index: 2;
   @extend %section-format;
   height: 30vh;
   width: 60%;

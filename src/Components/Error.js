@@ -1,3 +1,6 @@
+import React from "react";
+import "../Styles/global.scss";
+
 const Error = ({ setError, error }) => {
   return (
     <div className="error">

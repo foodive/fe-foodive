@@ -7,6 +7,7 @@ import Footer from './Components/Footer';
 import getRestaurant from './apiCall';
 import emptyData from './emptyData';
 import Error from './Components/Error';
+import logo from './assets/logo_full.svg'; 
 
 function App() {
   const [restaurantData, setRestaurantData] = useState(emptyData);
@@ -49,6 +50,7 @@ function App() {
     <>
       <nav>
         <Link to={'/'} style={{textDecoration: 'none'}}>
+          <img className='header-logo' src={logo} alt='logo'/>
           <h1>Foodive</h1>
         </Link>
       </nav>

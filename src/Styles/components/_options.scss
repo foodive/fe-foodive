@@ -25,13 +25,13 @@
 
 @media screen and (max-width: 500px) {
     .options-panel {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            overflow: scroll;
-            background-color: $white;
-            overflow-x: hidden;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        overflow: scroll;
+        background-color: $white;
+        overflow-x: hidden;
     }
 
     .options-panel::-webkit-scrollbar {
