@@ -73,6 +73,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
       </main>
     );
   }
+  
 }
 
 export default Recommendation;

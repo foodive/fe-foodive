@@ -28,3 +28,31 @@
   @keyframes rotateY {
     to { transform: rotateY(360deg); }
   }
+
+  @media screen and (max-width: 650px) {
+    .loading-pin {
+        top: 22vh;
+        left: 7vh;
+        height: 27vh;
+        width: 27vh;
+    }
+
+    .loading-plate {
+        height: 40vh;
+        width: 40vh;
+    }
+  }
+
+  @media screen and (max-width: 380px) {
+    .loading-pin {
+        top: 25vh;
+        left: 5.5vh;
+        height: 19vh;
+        width: 19vh;
+    }
+
+    .loading-plate {
+        height: 30vh;
+        width: 30vh;
+    }
+  }

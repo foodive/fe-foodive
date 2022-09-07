@@ -19,7 +19,7 @@ const options = [
     {displayName: "Sushi", requestName: "sushi"},
     {displayName: "Greek", requestName: "greek"},
     {displayName: "Cajun", requestName: "cajun"},
-    {displayName: "Barbeque", requestName: "barbeque"},
+    {displayName: "Barbeque", requestName: "bbq"},
     {displayName: "Indian", requestName: "indpak"},
     {displayName: "Vegetarian", requestName: "vegetarian"},
     {displayName: "Burgers", requestName: "burgers"},
