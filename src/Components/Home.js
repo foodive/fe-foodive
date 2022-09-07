@@ -7,10 +7,10 @@ const Home = ({ cuisine, setCuisine, location }) => {
   return (
     <main>
       <section className="home-info">
-      <p className="about">
-          Hello and welcome to Foodive! Select a Cuisine type and click 
-          the Search for Restaurant button to find a random restaurant in your city!
-      </p>
+        <p className="about">
+            Hello and welcome to Foodive! Select a Cuisine type and click 
+            the Search for Restaurant button to find a random restaurant in your city!
+        </p>
       </section>
       <section className="options-panel">
         <Options cuisine={cuisine} setCuisine={setCuisine} />

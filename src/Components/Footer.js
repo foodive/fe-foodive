@@ -1,15 +1,16 @@
 import React from "react";
+import "../Styles/global.scss";
 
 const Footer = () => {
-    return(
+    return (
         <section className="footer">
             <h3>Contact Us</h3>
             <div className="section-splitter"></div>
             <div className="project-lead">
                 <a className="footer-text" href='https://www.linkedin.com/in/luke-swenson' target='_blank' rel='noopener noreferrer'>Luke Swenson</a>
                 <div className="footer-info lead">
-                <a className="footer-text" href = "mailto: lukeswenson95@outlook.com">lukeswenson95@outlook.com</a>
-                <a className="footer-text" href='https://github.com/LukeSwenson06' target='_blank' rel='noopener noreferrer'>https://github.com/LukeSwenson06</a>
+                    <a className="footer-text" href = "mailto: lukeswenson95@outlook.com">lukeswenson95@outlook.com</a>
+                    <a className="footer-text" href='https://github.com/LukeSwenson06' target='_blank' rel='noopener noreferrer'>https://github.com/LukeSwenson06</a>
                 </div>
             </div>
             <div className="section-splitter"></div>
@@ -64,7 +65,7 @@ const Footer = () => {
                 </div>
             </section>
         </section>
-    )
+    );
 }
 
-export default Footer
+export default Footer;

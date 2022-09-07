@@ -9,8 +9,6 @@
 //     @include corner-style(5px);
 // }
 
-//keep this
-
 @mixin splitter($length) {
     background-color: $light-grey;
     height: 3px;

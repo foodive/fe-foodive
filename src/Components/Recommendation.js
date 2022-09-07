@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "../Styles/global.scss";
 import Error from "./Error";
 import Loading from "./Loading";
 
@@ -6,11 +7,11 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
 
   useEffect(() => {
     setCuisine(`${matchCuisine}`)
-    if (location.latitude && location.longitude && cuisine !== ""){
+    if (location.latitude && location.longitude && cuisine !== "") {
       retrieveRestaurant()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [location])
+  }, [location]);
 
   const displayedCategories = restaurantData.categories.join(", ");
   
