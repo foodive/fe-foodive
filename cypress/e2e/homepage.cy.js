@@ -24,9 +24,29 @@ describe('homepage flow', () => {
     cy.get('.submit')
   })
 
+  it('should be able to select a cuisine', () => {
+    cy.get('.options-container').get('button').contains('Mexican').click()
+    cy.get('.options-container').get('button').contains('Mexican').should(($input) => {
+      expect($input).to.not.have.class('unselected')
+    })
+  })
+
   it('should have contact info', () => {
     cy.get('.footer').contains('h3', 'Contact Us')
     cy.get('.project-lead').contains('.footer-text', 'Luke Swenson')
+  })
+
+  //This test will work only if you deny location on your browser.
+  it.skip('should show an error message if user denies permission to location', () => {
+    cy.visit('http://localhost:3000/', {
+      onBeforeLoad(win) {
+        const err = new Error('User denied')
+        err.code = GeolocationPositionError.PERMISSION_DENIED
+        cy.stub(win.navigator.geolocation, 'getCurrentPosition')
+          .callsArgWith(0, err).as('getCurrentPosition')
+      }
+    })
+    cy.get(".error-text").contains("We could not obtain your location. Please enable location permissions in settings.")
   })
 });
 
