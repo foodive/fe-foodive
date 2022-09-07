@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Error from "./Error";
+import Loading from "./Loading";
 
 const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, setCuisine, matchCuisine, cuisine }) => {
 
@@ -16,7 +17,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
   if (error) {
     return <Error error={error} />
   } else if (restaurantData.name === '') {
-    return <h2>Loading...</h2>
+    return <Loading />
   } else {
     return (
       <main>
