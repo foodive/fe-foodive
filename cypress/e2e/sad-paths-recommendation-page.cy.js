@@ -1,4 +1,5 @@
-describe("Recommendation page sad paths", () => {
+  // Tests below are all passing when running on Cypress locally, but they are skipped because CI/CD testing fails.
+describe("recommendation page sad paths", () => {
   it.skip("should display error message if the page is not found", () => {
     function mockLocation(latitude, longitude) {
       return {
@@ -10,14 +11,15 @@ describe("Recommendation page sad paths", () => {
             throw err({ code: 1 });
           });
         }
-      };
+      }
     }
     cy.intercept("GET", "https://foodive-be.herokuapp.com/restaurants/?location=47.6062,-122.3321&categories=breakfast_brunch", {
       statusCode: 404
-    })
+    });
     cy.visit("http://localhost:3000/recommendation/breakfast_brunch", mockLocation(47.6062, -122.3321))
-    .get(".error-text").contains("Sorry, something went wrong!")
-  })
+      .wait(5000)
+      .get(".error-text").contains("Sorry, something went wrong!");
+  });
 
   it.skip("should display error message if the server is down", () => {
     function mockLocation(latitude, longitude) {
@@ -30,13 +32,14 @@ describe("Recommendation page sad paths", () => {
             throw err({ code: 1 });
           });
         }
-      };
+      }
     }
     cy.intercept("GET", "https://foodive-be.herokuapp.com/restaurants/?location=47.6062,-122.3321&categories=breakfast_brunch", {
       statusCode: 500
-    })
+    });
     cy.visit("http://localhost:3000/recommendation/breakfast_brunch", mockLocation(47.6062, -122.3321))
-    .get(".error-text").contains("Sorry, something went wrong!")
-  })
-})
+      .wait(5000)
+      .get(".error-text").contains("Sorry, something went wrong!");
+  });
+});
 
