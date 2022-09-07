@@ -1,0 +1,30 @@
+.loading-container {
+    position: relative;
+    top: 0;
+    left: 0;
+  }
+
+  .loading-plate {
+    position: relative;
+    top: 30vh;
+    left: 0;
+  }
+
+  .loading-pin {
+    position: absolute;
+    z-index: 1;
+    top: 7vh;
+    left: 23vh;
+  }
+
+  .rotate-y { 
+    -webkit-animation: rotateY 1s infinite linear;
+    animation: rotateY 2.5s infinite linear;
+  }
+
+  @-webkit-keyframes rotateY {
+    to { -webkit-transform: rotateY(360deg); }
+  }
+  @keyframes rotateY {
+    to { transform: rotateY(360deg); }
+  }
