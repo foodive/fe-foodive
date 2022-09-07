@@ -7,8 +7,9 @@
 }
 
 .info-panel p {
-    font-size: 1.2em;
-    margin: .2em;
+    font-size: 1.1em;
+    text-align: center;
+    margin: 0px;
 }
 
 // ------------------ header ------------------ //
@@ -20,6 +21,12 @@
     height: 10vh;
 }
 
+.info-header h2 {
+    font-size: 2.4em;
+    text-align: center;
+    margin: 8vw;
+}
+
 .name{
     color: $white;
 }
@@ -29,6 +36,7 @@
     padding-top: 2vh;
     display: flex;
     justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
@@ -58,7 +66,7 @@
 .properties {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 98%;
 }
 
@@ -79,8 +87,58 @@
 
 // ------------------ map ------------------ //
 .map-container {
-    height: 27vh;
+    height: 32vh;
     width:100%;
-    background-color: $dark-green;
-    margin-bottom: 20px;
+    background-color: $purple;
+    overflow-y: scroll;
+    margin-bottom: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.map-container::-webkit-scrollbar {
+    width: 20px;
+    margin-right: 200px;
+}
+
+.map-container::-webkit-scrollbar-track {
+    background-color: $mid-grey;
+}
+
+.map-container::-webkit-scrollbar-thumb {
+    background-color: $light-grey;
+    border-radius: 25px;
+}
+
+.map-img {
+    width: 100%;
+}
+
+@media screen and (max-width: 600px) {
+    .info-header h2 {
+        font-size: 2em;
+    }
+}
+
+@media screen and (max-width: 481px) {
+    .map-container {
+        overflow-y: hidden;
+    }
+    .map-img {
+        width: auto;
+        height: 100%;
+    }
+    .restaurant-image img {
+        width: auto;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 385px) {
+    .properties {
+        flex-direction: column;
+        align-items: center;
+    }
 }

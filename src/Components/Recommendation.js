@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Error from "./Error";
+import Loading from "./Loading";
 
 const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, setCuisine, matchCuisine, cuisine }) => {
 
@@ -16,7 +17,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
   if (error) {
     return <Error error={error} />
   } else if (restaurantData.name === '') {
-    return <h2>Loading...</h2>
+    return <Loading />
   } else {
     return (
       <main>
@@ -29,14 +30,14 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
               <img src={restaurantData.image_url} alt="restaurant cover"></img>
             </div>
             <section className="details">
+              <p className="cuisine">
+                {displayedCategories}
+              </p>
+              <div className="info-splitter"></div>
               <section className="properties">
                 <div className="ratings">
                   <p>{restaurantData.rating}</p>
                 </div>
-                <p className="dot">●</p>
-                <p className="cuisine">
-                  {displayedCategories}
-                </p>
                 <p className="dot">●</p>
                 <p className="cost">{restaurantData.price}</p>
                 <p className="dot">●</p>
@@ -56,7 +57,8 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
           <div className="section-splitter"></div>
           <section className="map-container">
             {location.latitude && location.longitude ? 
-              <img className="map"
+              <img 
+                className="map-img"
                 src={`https://maps.googleapis.com/maps/api/staticmap?center=${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&zoom=11.5&size=400x300&markers=color:red%7Clabel:B%7C${restaurantData.coordinates.latitude},${restaurantData.coordinates.longitude}&markers=color:green%7Clabel:A%7C${location.latitude},${location.longitude}&key=AIzaSyCQmD_RAws3PNa65j9hC1wxuGihWjc_dP8`}
                 alt='Restaurant location on map'
               />
