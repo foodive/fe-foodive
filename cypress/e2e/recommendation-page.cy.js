@@ -30,7 +30,7 @@ describe('recommendation page flow', () => {
   });
 
   it.skip('should contain an image of the restaurant', () => {
-    cy.get('.restaurant-image').get('img').should('have.attr', 'src', '/static/media/logo_full.8757bea464cb6d7377d251dd800a5d7e.svg');
+    cy.get('.rest-img').should('have.attr', 'src', 'https://s3-media2.fl.yelpcdn.com/bphoto/2fZeq9jDHjrrqPjCulGc8A/o.jpg');
   });
 
   it.skip('should contain restaurant information', () => {
