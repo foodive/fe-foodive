@@ -28,7 +28,7 @@ const Recommendation = ({ restaurantData, location, retrieveRestaurant, error, s
           </header>
           <section className="information">
             <div className="restaurant-image">
-              <img src={restaurantData.image_url} alt="restaurant cover"></img>
+              <img className="rest-img" src={restaurantData.image_url} alt="restaurant cover"></img>
             </div>
             <section className="details">
               <p className="cuisine">
